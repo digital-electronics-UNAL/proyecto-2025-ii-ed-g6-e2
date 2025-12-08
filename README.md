@@ -99,3 +99,7 @@ En el caso del proyecto, este protocolo fue aplicado para la transmisión de dat
 ## Evidencias de implementación
 
 ## Referencias.
+
+[1] PlantUML, “Online UML Diagram Generator.” Disponible en: https://www.plantuml.com/plantuml/uml/SyfFKj2rKt3CoKnELR1Io4ZDoSa70000  
+
+[2] Analog Devices, “UART: A Hardware Communication Protocol,” *Analog Dialogue*. Disponible en: https://www.analog.com/en/resources/analog-dialogue/articles/uart-a-hardware-communication-protocol.html
