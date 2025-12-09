@@ -15,6 +15,23 @@
 
 ### Temporizador.
 ### Motor.
+
+<p align="center">
+  <img src="Imágenes/div_m.png" alt="Diagrama de circuito del divisor de frecuencia" width=100%/>
+  <br>
+  <em>Diagrama de circuito del divisor de frecuencia.</em>
+</p>
+
+El circuito está formado por un contador, un comparador y un registro de salida. El contador se implementa con un registro de 28 bits y un sumador, en cada pulso del reloj (clk), el sumador incrementa el valor almacenado en el registro. Cuando el contador llega al número programado, el comparador detecta la coincidencia y genera una señal de activación.Esa señal se guarda en un registro final, que produce el pulso de salida (clk_1). Luego el contador vuelve a iniciar y el proceso se repite. De esta manera, la salida cambia estado solo después de un número determinado de ciclos del reloj original, lo que genera una frecuencia más baja que se usa para el motor.El módulo divide la frecuencia usando tres bloques principales, un contador, comparador y registro de salida.
+
+<p align="center">
+  <img src="Imágenes/motor.png" alt="Diagrama de circuito del motor" width=100%/>
+  <br>
+  <em>Diagrama de circuito del motor.</em>
+</p>
+
+Este módulo es un generador de patrón de 4 bits sincronizado cuyo control de secuencia se basa en un Contador de 3 bits. El contador se incrementa síncronamente mediante un Sumador al ritmo del reloj (clk_1), pero solo cuando la señal de habilitación motor_activo se encuentra activa en su entrada. El valor binario de este contador se utiliza como entrada para un Decodificador que activa una única línea de salida para cada estado de la secuencia. Estas ocho líneas decodificadas se enrutan a través de un conjunto de cuatro compuertas OR que definen el patrón específico de 4 bits deseado para cada estado. Finalmente, el patrón generado por estas compuertas OR se carga en el Registro de Salida en el flanco ascendente del reloj, lo que garantiza que la señal de control final sea estable y esté perfectamente sincronizada con el resto del sistema digital.
+
 ### Contador de porciones.
 ### Sensor de proximidad.
 
