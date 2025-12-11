@@ -14,6 +14,30 @@
 ## Elementos incorporados.
 
 ### Temporizador.
+
+<p align="center">
+  <img src="Imágenes/timer.png" alt="Diagrama de circuito del temporizador" width=100%/>
+  <br>
+  <em>Diagrama de circuito del divisor del temporizador.</em>
+</p>
+<p align="center">
+  <img src="Imágenes/timer2.png" alt="Diagrama de circuito del temporizador" width=100%/>
+  <br>
+  <em>Diagrama de circuito del divisor del temporizador.</em>
+</p>
+<p align="center">
+  <img src="Imágenes/timer3.png" alt="Diagrama de circuito del temporizador" width=100%/>
+  <br>
+  <em>Diagrama de circuito del divisor del temporizador.</em>
+</p>
+<p align="center">
+  <img src="Imágenes/timer4.png" alt="Diagrama de circuito del temporizador" width=100%/>
+  <br>
+  <em>Diagrama de circuito del divisor del temporizador.</em>
+</p>
+
+Este circuito lleva el control del tiempo usando un contador principal que va avanzando con cada pulso del reloj, y ese contador sirve como base para generar los segundos. Para manejar cada dígito del tiempo, el circuito usa varios contadores independientes, destinados para las unidades y decenas de los segundos, minutos y horas. Cada contador está conectado a comparadores, que son los bloques que revisan si el valor ya llegó al máximo. Cuando un comparador detecta que ya se alcanzó ese límite, se envía una señal para que el contador correspondiente se reinicie y, al mismo tiempo, haga avanzar el siguiente contador de la cadena. Además, hay sumadores que se encargan de incrementar los valores y selectores que deciden cuándo usar el número incrementado, cuándo mantenerlo igual o cuándo ponerlo en cero, dependiendo del estado actual. También aparecen pequeñas compuertas que habilitan o bloquean el avance según señales como el reinicio, el reloj o el encendido del motor y del sensor. En conjunto, estos componentes permiten que el circuito construya un reloj digital interno donde los segundos avanzan, arrastran a los minutos cuando completan un ciclo, y los minutos hacen lo mismo con las horas, manteniendo siempre un conteo correcto y automático.
+
 ### Motor.
 
 <p align="center">
@@ -32,7 +56,7 @@ El circuito está formado por un contador, un comparador y un registro de salida
 
 Este módulo es un generador de patrón de 4 bits sincronizado cuyo control de secuencia se basa en un Contador de 3 bits. El contador se incrementa síncronamente mediante un Sumador al ritmo del reloj (clk_1), pero solo cuando la señal de habilitación motor_activo se encuentra activa en su entrada. El valor binario de este contador se utiliza como entrada para un Decodificador que activa una única línea de salida para cada estado de la secuencia. Estas ocho líneas decodificadas se enrutan a través de un conjunto de cuatro compuertas OR que definen el patrón específico de 4 bits deseado para cada estado. Finalmente, el patrón generado por estas compuertas OR se carga en el Registro de Salida en el flanco ascendente del reloj, lo que garantiza que la señal de control final sea estable y esté perfectamente sincronizada con el resto del sistema digital.
 
-### Contador de porciones.
+
 ### Sensor de proximidad.
 
 El primer diagrama es el detalle interno del módulo, mientras que el segundo muestra su uso externo. La salida del módulo, generada a partir del contador y el comparador, se toma como señal limpia y se almacena en otro registro para que el resto del sistema la utilice. Todo el procesamiento interno queda oculto cuando el módulo se integra.
@@ -54,6 +78,54 @@ El primer diagrama muestra los componentes que forman el módulo del antirrebote
 En el segundo diagrama, el módulo anterior aparece integrado como un bloque completo con nombre debouncer_inst. Solo se muestran sus puertos: la entrada, el reloj y su salida limpia. La salida del módulo pasa por un multiplexor que selecciona la señal a utilizar y luego entra a un registro que guarda el valor final. Aquí ya no se ven los componentes internos, porque todo está encapsulado dentro del módulo, y solo se usa su resultado. Por lo que el diagrama muestra cómo el módulo se conecta con el resto del circuito mediante elementos simples como un multiplexor y un registro.
 
 ### Modulo bluetooth.
+<p align="center">
+  <img src="Imágenes/bluetooth.png" alt="Diagrama de circuito del texto Bluetooth" width=100%/>
+  <br>
+  <em>Diagrama de circuito del texto Bluetooth.</em>
+</p>
+<p align="center">
+  <img src="Imágenes/bluetooth2.png" alt="Diagrama de circuito del texto Bluetooth" width=100%/>
+  <br>
+  <em>Diagrama de circuito del texto Bluetooth.</em>
+</p>
+<p align="center">
+  <img src="Imágenes/bluetooth3.png" alt="Diagrama de circuito del texto Bluetooth" width=100%/>
+  <br>
+  <em>Diagrama de circuito del texto Bluetooth.</em>
+</p>
+
+Este circuito es el encargado de enviar un mensaje por Bluetooth cuando recibe una señal de “trigger”. Lo que hace es recorrer un mensaje guardado en memoria y, usando varios selectores y contadores, va escogiendo byte por byte para enviarlo en orden. Una máquina de estados coordina todo el proceso, es decir, cuándo cargar el siguiente byte, cuándo pedirle al transmisor que envíe, y cuándo avanzar hasta terminar el mensaje. Cada byte pasa luego al módulo UART, que es el encargado de convertirlo en la señal serial. Finalmente, la salida “tx” del sistema se conecta al módulo Bluetooth HM-10.
+
+<p align="center">
+  <img src="Imágenes/uart.png" alt="Diagrama de circuito del protocolo UART" width=100%/>
+  <br>
+  <em>Diagrama de circuito del protocolo UART.</em>
+</p>
+<p align="center">
+  <img src="Imágenes/uart2.png" alt="Diagrama de circuito del protocolo UART" width=100%/>
+  <br>
+  <em>Diagrama de circuito del protocolo UART.</em>
+</p>
+<p align="center">
+  <img src="Imágenes/uart3.png" alt="Diagrama de circuito del protocolo UART" width=100%/>
+  <br>
+  <em>Diagrama de circuito del protocolo UART.</em>
+</p>
+<p align="center">
+  <img src="Imágenes/uart4.png" alt="Diagrama de circuito del protocolo UART" width=100%/>
+  <br>
+  <em>Diagrama de circuito del protocolo UART.</em>
+</p>
+
+Este segundo diagrama corresponde al transmisor UART, que es quien convierte cada byte que recibe en una señal serial. Tiene varios contadores que generan la velocidad de transmisión (baud rate) y que llevan la cuenta de los bits que ya se han enviado. El byte entra a un registro que va “corriendo” sus bits hacia afuera uno por uno, comenzando por el bit de inicio y terminando en el bit de parada. El módulo también indica cuándo está ocupado enviando (busy) y produce la señal final “tx”, que es la que se transmite.
+
+<p align="center">
+  <img src="Imágenes/topbluetooth.png" alt="Diagrama de circuito del módulo Bluetooth" width=100%/>
+  <br>
+  <em>Diagrama de circuito del módulo Bluetooth.</em>
+</p>
+
+El último diagrama muestra cómo se integra todo el sistema como un módulo llamado “HM10sender”. Este bloque recibe el reloj principal de 50 MHz, una señal de reinicio y el trigger que activa el envío del mensaje. Su única salida es “bt_tx”, que es donde aparece la señal UART ya preparada para ir directamente al módulo Bluetooth HM-10, resumiendo todo el diseño en una sola caja con sus entradas y salida principales.
 
 ## Descripción de la arquitectura
 
