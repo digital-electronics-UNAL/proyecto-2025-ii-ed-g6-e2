@@ -152,6 +152,30 @@ Este segundo diagrama corresponde al transmisor UART, que es quien convierte cad
 
 El último diagrama muestra cómo se integra todo el sistema como un módulo llamado “HM10sender”. Este bloque recibe el reloj principal de 50 MHz, una señal de reinicio y el trigger que activa el envío del mensaje. Su única salida es “bt_tx”, que es donde aparece la señal UART ya preparada para ir directamente al módulo Bluetooth HM-10, resumiendo todo el diseño en una sola caja con sus entradas y salida principales.
 
+### Módulo top
+<p align="center">
+  <img src="Imágenes/top.png" alt="Diagrama de circuito del módulo top" width=100%/>
+  <br>
+  <em>Diagrama de circuito del módulo top.</em>
+</p>
+<p align="center">
+  <img src="Imágenes/top1.png" alt="Diagrama de circuito del módulo top" width=100%/>
+  <br>
+  <em>Diagrama de circuito del módulo top.</em>
+</p>
+<p align="center">
+  <img src="Imágenes/top3.png" alt="Diagrama de circuito del módulo top" width=100%/>
+  <br>
+  <em>Diagrama de circuito del módulo top.</em>
+</p>
+<p align="center">
+  <img src="Imágenes/top4.png" alt="Diagrama de circuito del módulo top" width=100%/>
+  <br>
+  <em>Diagrama de circuito del módulo top.</em>
+</p>
+
+El sistema funciona tomando primero las señales de entrada como el sensor, el reloj y el reset, las cuales se distribuyen a los diferentes bloques del circuito. A partir del reloj, los registros y contadores comienzan a trabajar de forma sincronizada, permitiendo que la máquina de estados controle el proceso paso a paso. Los comparadores evalúan condiciones como si un valor ya alcanzó un límite o si el tiempo definido por el temporizador se cumplió, y con base en eso se generan las señales que activan o desactivan el motor. Estos estados y condiciones determinan cuándo el motor está en funcionamiento y cuándo debe detenerse. Al mismo tiempo, la información generada por los estados y contadores se envía al controlador de la pantalla LCD, que se encarga de mostrar los datos correspondientes al estado actual del sistema. 
+
 ## Descripción de la arquitectura
 
 
