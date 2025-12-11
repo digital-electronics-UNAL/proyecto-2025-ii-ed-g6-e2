@@ -18,22 +18,22 @@
 <p align="center">
   <img src="Imágenes/timer.png" alt="Diagrama de circuito del temporizador" width=100%/>
   <br>
-  <em>Diagrama de circuito del divisor del temporizador.</em>
+  <em>Diagrama de circuito del temporizador.</em>
 </p>
 <p align="center">
   <img src="Imágenes/timer2.png" alt="Diagrama de circuito del temporizador" width=100%/>
   <br>
-  <em>Diagrama de circuito del divisor del temporizador.</em>
+  <em>Diagrama de circuito del temporizador.</em>
 </p>
 <p align="center">
   <img src="Imágenes/timer3.png" alt="Diagrama de circuito del temporizador" width=100%/>
   <br>
-  <em>Diagrama de circuito del divisor del temporizador.</em>
+  <em>Diagrama de circuito del temporizador.</em>
 </p>
 <p align="center">
   <img src="Imágenes/timer4.png" alt="Diagrama de circuito del temporizador" width=100%/>
   <br>
-  <em>Diagrama de circuito del divisor del temporizador.</em>
+  <em>Diagrama de circuito del temporizador.</em>
 </p>
 
 Este circuito lleva el control del tiempo usando un contador principal que va avanzando con cada pulso del reloj, y ese contador sirve como base para generar los segundos. Para manejar cada dígito del tiempo, el circuito usa varios contadores independientes, destinados para las unidades y decenas de los segundos, minutos y horas. Cada contador está conectado a comparadores, que son los bloques que revisan si el valor ya llegó al máximo. Cuando un comparador detecta que ya se alcanzó ese límite, se envía una señal para que el contador correspondiente se reinicie y, al mismo tiempo, haga avanzar el siguiente contador de la cadena. Además, hay sumadores que se encargan de incrementar los valores y selectores que deciden cuándo usar el número incrementado, cuándo mantenerlo igual o cuándo ponerlo en cero, dependiendo del estado actual. También aparecen pequeñas compuertas que habilitan o bloquean el avance según señales como el reinicio, el reloj o el encendido del motor y del sensor. En conjunto, estos componentes permiten que el circuito construya un reloj digital interno donde los segundos avanzan, arrastran a los minutos cuando completan un ciclo, y los minutos hacen lo mismo con las horas, manteniendo siempre un conteo correcto y automático.
@@ -76,6 +76,31 @@ El primer diagrama muestra los componentes que forman el módulo del antirrebote
 </p>
 
 En el segundo diagrama, el módulo anterior aparece integrado como un bloque completo con nombre debouncer_inst. Solo se muestran sus puertos: la entrada, el reloj y su salida limpia. La salida del módulo pasa por un multiplexor que selecciona la señal a utilizar y luego entra a un registro que guarda el valor final. Aquí ya no se ven los componentes internos, porque todo está encapsulado dentro del módulo, y solo se usa su resultado. Por lo que el diagrama muestra cómo el módulo se conecta con el resto del circuito mediante elementos simples como un multiplexor y un registro.
+
+
+### Pantalla LCD 
+<p align="center">
+  <img src="Imágenes/LCD.png" alt="Diagrama de circuito del texto en la LCD" width=100%/>
+  <br>
+  <em>Diagrama de circuito del texto en la LCD.</em>
+</p>
+<p align="center">
+  <img src="Imágenes/LCD2.png" alt="Diagrama de circuito del texto en la LCD" width=100%/>
+  <br>
+  <em>Diagrama de circuito del texto en la LCD.</em>
+</p>
+<p align="center">
+  <img src="Imágenes/LCD3.png" alt="Diagrama de circuito del texto en la LCD" width=100%/>
+  <br>
+  <em>Diagrama de circuito del texto en la LCD.</em>
+</p>
+<p align="center">
+  <img src="Imágenes/LCD4.png" alt="Diagrama de circuito del texto en la LCD" width=100%/>
+  <br>
+  <em>Diagrama de circuito del texto en la LCD.</em>
+</p>
+
+Este circuito es un controlador completo para una pantalla LCD tipo 1602. Primero, en la parte izquierda se encuentran los bloques que preparan la información que debe escribirse en la pantalla a través de multiplexores y comparadores que seleccionan qué dato enviar, dependiendo del estado del sistema y de las instrucciones internas. En la parte central aparece una máquina de estados, que es la encargada de decidir en qué etapa va el envío de datos, como la inicialización de la pantalla, el envío de comandos o la transmición de los caracteres. Esa máquina activa cada bloque cuando corresponde. Hacia la derecha se encuentra la parte más grande del circuito, donde están los registros y multiplexores que almacenan cada bit del dato que se va a mostrar, junto con las señales necesarias del LCD (RS, RW y EN). Esta zona se encarga de sacar cada bit en el orden correcto y sincronizarlo con el pulso de habilitación. Finalmente, al extremo derecho están las salidas que llegan directamente a la pantalla, donde cada línea representa una señal concreta que el LCD necesita. En conjunto, todos estos componentes permiten que el circuito tome un mensaje, lo divida en bits, genere los comandos adecuados y los envíe a la pantalla paso a paso para que el texto aparezca correctamente.
 
 ### Modulo bluetooth.
 <p align="center">
