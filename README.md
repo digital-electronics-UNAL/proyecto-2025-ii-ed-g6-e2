@@ -20,6 +20,12 @@ Se llevó a cabo el diseño y la impresión del siguiente diseño.
 <p align="center">
   <img src="Imágenes/Dseño fisico.jpg" width="600">
 </p>
+<p align="center">
+  <img src="Imágenes/mascota fisico.jpg" width="600">
+</p>
+<p align="center">
+  <img src="Imágenes/prototipo2 fisico.jpg" width="600">
+</p>
 
 # Descripción de la Arquitectura
 Para la realización del proyecto, se emplearon diversos recursos típicos de la descripción de hardware, incluyendo lógica combinacional (como multiplexores y compuertas), descripción comportamental mediante bloques always, estructuras de control similares a las de la programación clásica (como if) y componentes más avanzados como máquinas de estado y módulos que implementan protocolos de comunicación.
@@ -266,6 +272,15 @@ Se simuló una señal ```sensor_i``` que dura 200ns, y se configuró que el anti
 ## Pantalla LCD
 
 ##  Módulo Bluetooth
+
+<p align="center">
+  <img src="Imágenes/tb_bluetooth.png" alt="Simulación en GTKwave del funcionamiento del módulo Bluetooth" width=100%/>
+  <br>
+  <em>Simulación en GTKwave del funcionamiento del módulo Bluetooth.</em>
+</p>
+
+En la simulación con GTKwave se ve la frecuencia del reloj en la primera linea, después la velocidad de transmisión (12.5 Mbaudios), y en la tercera fila el ```trigger```. El ```trigger``` es la señal de inicio del mensaje. Se activa cuando la condición de control se cumple, en este caso que las porciones llegaron a 0. La máquina de estados ```HM10sender``` solo inicia la transmisión del mensaje "No hay mas porciones" cuando detecta un flanco de subida en trigger y el UART no está ocupado. En la cuarta fila está la longitud del mensaje en caracteres y en la quinta línea el mensaje representado en ascci con codigficación en hexadecimal. El primer caracter corresponde a la "N" (4E), luego  la "o" (6F) y 20 que es un espacio. Busy significa que hay transmisión de datos en ese momento y bit_cnt muestra los 10 bits que se transmiten cada vez, 1 de inicio, 8 de datos y 1 de finalización.
+
 
 # Bibliografía
 [1] Digital Electronics UNAL, “2025-2,” GitHub repository. https://github.com/digital-electronics-UNAL/2025-2 (accedido Dec. 14, 2025).
