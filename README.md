@@ -15,8 +15,6 @@ Jana Rubiano Hurtado (jrubianoh@unal.edu.co)
 
 El objetivo principal del proyecto es diseñar un sistema capaz de controlar la dispensación de alimento de forma automática, empleando módulos digitales descritos en Verilog que gestionan sensores, temporizadores y el control de un motor que se encargará de girar el dispositivo para entregar la comida del animal.
 
-# Documentación
-
 # Prototipo físico 
 Se llevó a cabo el diseño y la impresión del siguiente diseño.
 <p align="center">
@@ -242,6 +240,14 @@ El sistema funciona tomando primero las señales de entrada como el sensor, el r
 
 ## Simulaciones
 
+# Documentación
+[1] Digital Electronics UNAL, “2025-2,” GitHub repository. https://github.com/digital-electronics-UNAL/2025-2 (accedido Dec. 14, 2025).
+[2] “Verilog Tutorial,” *ChipVerify*, https://www.chipverify.com/tutorials/verilog (accedido Dec. 14, 2025). :contentReference[oaicite:0]{index=0}
+[3] Ovisign Verilog HDL Tutorials, «FPGA project 08 Part1 - Digital BCD Timer», YouTube. 16 de octubre de 2022. [En línea]. Disponible en: https://www.youtube.com/watch?v=04KTw--Y5Ec
+[4] «Verilog code for Alarm clock on FPGA», FPGA4student.com. https://www.fpga4student.com/2016/11/verilog-code-for-alarm-clock-on-fpga.html
+[5] Pavanakp, «Basics of Bluetooth Module», LearnElectronics India, 14 de septiembre de 2024. https://www.learnelectronicsindia.com/post/basics-of-bluetooth-module
+[6] C. Prados Sesmero, «Control de Dispositivos Externos, desde una FPGA, vía Bluetooth», Universidad de Valladolid, 2018. [En línea]. Disponible en: https://share.google/OEYmx88MDeVb9psRn
+[7] Admin, «Sensor de proximidad», Industrias GSL, 1 de marzo de 2022. https://industriasgsl.com/blogs/automatizacion/sensor_de_proximidad
 
 # Evidencias de implementación
 
