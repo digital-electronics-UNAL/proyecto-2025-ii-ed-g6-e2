@@ -243,5 +243,6 @@ El sistema funciona tomando primero las señales de entrada como el sensor, el r
 ## Simulaciones
 
 
-## Evidencias de implementación
+# Evidencias de implementación
 
+Para verificar la implementación de los elementos, se puede consultar el siguiente enlace, donde se encuentran videos que muestran algunas de las funcionalidades desarrolladas en el proyecto. [Ver en Google Drive](https://drive.google.com/drive/folders/181sdODDXI2fHAPDyi-euoFiO8eSgnvUJ)
