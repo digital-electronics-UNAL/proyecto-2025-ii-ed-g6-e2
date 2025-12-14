@@ -272,7 +272,7 @@ Se simuló una señal ```sensor_i``` que dura 200ns, y se configuró que el anti
 ## Pantalla LCD
 
 <p align="center">
-  <img src="Imágenes/tb_lcd.jpeg" alt="Simulación en GTKwave del funcionamiento de la LCD" width=100%/>
+  <img src="Imágenes/tb_lcd.png" alt="Simulación en GTKwave del funcionamiento de la LCD" width=100%/>
   <br>
   <em>Simulación en GTKwave del funcionamiento de la LCD.</em>
 </p>
