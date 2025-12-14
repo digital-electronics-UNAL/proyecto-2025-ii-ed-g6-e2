@@ -164,7 +164,7 @@ En el segundo diagrama, el módulo anterior aparece integrado como un bloque com
 
 Este circuito es un controlador completo para una pantalla LCD tipo 1602. Primero, en la parte izquierda se encuentran los bloques que preparan la información que debe escribirse en la pantalla a través de multiplexores y comparadores que seleccionan qué dato enviar, dependiendo del estado del sistema y de las instrucciones internas. En la parte central aparece una máquina de estados, que es la encargada de decidir en qué etapa va el envío de datos, como la inicialización de la pantalla, el envío de comandos o la transmición de los caracteres. Esa máquina activa cada bloque cuando corresponde. Hacia la derecha se encuentra la parte más grande del circuito, donde están los registros y multiplexores que almacenan cada bit del dato que se va a mostrar, junto con las señales necesarias del LCD (RS, RW y EN). Esta zona se encarga de sacar cada bit en el orden correcto y sincronizarlo con el pulso de habilitación. Finalmente, al extremo derecho están las salidas que llegan directamente a la pantalla, donde cada línea representa una señal concreta que el LCD necesita. En conjunto, todos estos componentes permiten que el circuito tome un mensaje, lo divida en bits, genere los comandos adecuados y los envíe a la pantalla paso a paso para que el texto aparezca correctamente.
 
-### Modulo bluetooth.
+### Módulo Bluetooth
 <p align="center">
   <img src="Imágenes/bluetooth.png" alt="Diagrama de circuito del texto Bluetooth" width=100%/>
   <br>
@@ -238,7 +238,23 @@ El último diagrama muestra cómo se integra todo el sistema como un módulo lla
 
 El sistema funciona tomando primero las señales de entrada como el sensor, el reloj y el reset, las cuales se distribuyen a los diferentes bloques del circuito. A partir del reloj, los registros y contadores comienzan a trabajar de forma sincronizada, permitiendo que la máquina de estados controle el proceso paso a paso. Los comparadores evalúan condiciones como si un valor ya alcanzó un límite o si el tiempo definido por el temporizador se cumplió, y con base en eso se generan las señales que activan o desactivan el motor. Estos estados y condiciones determinan cuándo el motor está en funcionamiento y cuándo debe detenerse. Al mismo tiempo, la información generada por los estados y contadores se envía al controlador de la pantalla LCD, que se encarga de mostrar los datos correspondientes al estado actual del sistema. 
 
-## Simulaciones
+# Simulaciones
+
+## Temporizador
+
+## Motor
+
+<p align="center">
+  <img src="Imágenes/tb_motor.png" alt="Simulación en GTKwave del funcionamiento del motor" width=100%/>
+  <br>
+  <em>Simulación en GTKwave del funcionamiento del motor.</em>
+</p>
+
+## Sensor de Proximidad
+
+## Pantalla LCD
+
+##  Módulo Bluetooth
 
 # Bibliografía
 [1] Digital Electronics UNAL, “2025-2,” GitHub repository. https://github.com/digital-electronics-UNAL/2025-2 (accedido Dec. 14, 2025).
