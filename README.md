@@ -8,7 +8,7 @@
 
 
 # Documentación
-## Descripción y Diagramas de la Arquitectura
+# Descripción y Diagramas de la Arquitectura
 ### Temporizador.
 
 <p align="center">
