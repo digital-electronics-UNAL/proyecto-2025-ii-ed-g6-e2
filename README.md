@@ -271,6 +271,15 @@ Se simuló una señal ```sensor_i``` que dura 200ns, y se configuró que el anti
 
 ## Pantalla LCD
 
+<p align="center">
+  <img src="Imágenes/tb_lcd.png" alt="Simulación en GTKwave del funcionamiento de la LCD" width=100%/>
+  <br>
+  <em>Simulación en GTKwave del funcionamiento de la LCD.</em>
+</p>
+
+
+El diagrama confirma que el controlador ejecuta correctamente la fase crítica de inicialización, enviando los comandos necesarios para configurar la LCD y realizar la transición limpia al estado de escritura de datos. ```enable_i``` es la señal que representa el pulso que le permite a la FSM avanzar y enviar un byte (comando o dato). El bus ```data``` muestra la secuencia exacta de los comandos cargados en ```config_mem``` y enviados a la LCD, uno por cada pulso de ```enable```. ```rs``` (Register Select) permanece en 0 durante toda la fase de configuración, lo cual es correcto, ya que ```rs = 0``` indica que el bus data contiene un comando y no un carácter de texto.
+
 ##  Módulo Bluetooth
 
 <p align="center">
