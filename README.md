@@ -18,13 +18,13 @@ El objetivo principal del proyecto es diseñar un sistema capaz de controlar la 
 # Prototipo físico 
 Se llevó a cabo el diseño y la impresión del siguiente diseño.
 <p align="center">
-  <img src="Imágenes/Dseño fisico.jpg" width="600">
+  <img src="Images/Dseño fisico.jpg" width="600">
 </p>
 <p align="center">
-  <img src="Imágenes/mascota.jpeg" width="600">
+  <img src="Images/mascota.jpeg" width="600">
 </p>
 <p align="center">
-  <img src="Imágenes/prototipo2.jpeg" width="600">
+  <img src="Images/prototipo2.jpeg" width="600">
 </p>
 
 # Descripción de la Arquitectura
@@ -32,7 +32,7 @@ Para la realización del proyecto, se emplearon diversos recursos típicos de la
 
 ## Diagrama de bloques 
 <p align="center">
-  <img src="Imágenes/Diagrama de bloques.png" width="700">
+  <img src="Images/Diagrama de bloques.png" width="700">
 </p>
 
 
@@ -47,7 +47,7 @@ Se utilizaron maquinas de estado tanto para la LCD como para el modulo bluetooth
 
 Para la LCD, 
 <p align="center">
-  <img src="Imágenes/Maquina LCD.jpg" width="600">
+  <img src="Images/Maquina LCD.jpg" width="600">
 </p>
 
 La máquina de estados controla paso a paso lo que la pantalla LCD debe hacer. Primero, cuando el sistema enciende o se reinicia, todo comienza en el estado IDLE, que es simplemente una espera inicial. Cuando la LCD está lista, la máquina avanza y envía una serie de comandos de configuración necesarios para dejar la pantalla lista para usar.
@@ -59,7 +59,7 @@ En caso de ocurrir un reset, la máquina vuelve directamente al estado inicial (
 
 Para el modulo bluetooth se utilizó la siguiente maquina de estados.
 <p align="center">
-  <img src="Imágenes/Maquina bluetooth.jpg" width="170">
+  <img src="Images/Maquina bluetooth.jpg" width="170">
 </p>
 La función de esta es esperar la señal para cargar el mensaje, enviarlo y volver a esperar el mensaje.
 
@@ -74,7 +74,7 @@ Las señales de UART son el transmisor (Tx) y el receptor (Rx), para asi enviar 
 La transmisión de datos se realiza en forma de paquetes seriales, que constan de un bit de inicio, datos, un bit de paridad y bits de parada.
 
 <p align="center">
-  <img src="Imágenes/UART.svg" width="500">
+  <img src="Images/UART.svg" width="500">
 </p>
 
 En el caso del proyecto, este protocolo fue aplicado para la transmisión de datos por bluetooth. En el modulo de "uart_tx" se puede observar que se siguen todos los pasos de la imagen anterior, enviando los datos uno tras otro a una determinada velocidad. El modulo recibe un dato, lo convierte a  un paquete de datos UART y lo envia bit por bit a la linea de salida.
@@ -84,22 +84,22 @@ En el caso del proyecto, este protocolo fue aplicado para la transmisión de dat
 ### Temporizador.
 
 <p align="center">
-  <img src="Imágenes/timer.png" alt="Diagrama de circuito del temporizador" width=100%/>
+  <img src="Images/timer.png" alt="Diagrama de circuito del temporizador" width=100%/>
   <br>
   <em>Diagrama de circuito del temporizador.</em>
 </p>
 <p align="center">
-  <img src="Imágenes/timer2.png" alt="Diagrama de circuito del temporizador" width=100%/>
+  <img src="Images/timer2.png" alt="Diagrama de circuito del temporizador" width=100%/>
   <br>
   <em>Diagrama de circuito del temporizador.</em>
 </p>
 <p align="center">
-  <img src="Imágenes/timer3.png" alt="Diagrama de circuito del temporizador" width=100%/>
+  <img src="Images/timer3.png" alt="Diagrama de circuito del temporizador" width=100%/>
   <br>
   <em>Diagrama de circuito del temporizador.</em>
 </p>
 <p align="center">
-  <img src="Imágenes/timer4.png" alt="Diagrama de circuito del temporizador" width=100%/>
+  <img src="Images/timer4.png" alt="Diagrama de circuito del temporizador" width=100%/>
   <br>
   <em>Diagrama de circuito del temporizador.</em>
 </p>
@@ -109,7 +109,7 @@ Este circuito lleva el control del tiempo usando un contador principal que va av
 ### Motor.
 
 <p align="center">
-  <img src="Imágenes/div_m.png" alt="Diagrama de circuito del divisor de frecuencia" width=100%/>
+  <img src="Images/div_m.png" alt="Diagrama de circuito del divisor de frecuencia" width=100%/>
   <br>
   <em>Diagrama de circuito del divisor de frecuencia.</em>
 </p>
@@ -117,7 +117,7 @@ Este circuito lleva el control del tiempo usando un contador principal que va av
 El circuito está formado por un contador, un comparador y un registro de salida. El contador se implementa con un registro de 28 bits y un sumador, en cada pulso del reloj (clk), el sumador incrementa el valor almacenado en el registro. Cuando el contador llega al número programado, el comparador detecta la coincidencia y genera una señal de activación.Esa señal se guarda en un registro final, que produce el pulso de salida (clk_1). Luego el contador vuelve a iniciar y el proceso se repite. De esta manera, la salida cambia estado solo después de un número determinado de ciclos del reloj original, lo que genera una frecuencia más baja que se usa para el motor.El módulo divide la frecuencia usando tres bloques principales, un contador, comparador y registro de salida.
 
 <p align="center">
-  <img src="Imágenes/motor.png" alt="Diagrama de circuito del motor" width=100%/>
+  <img src="Images/motor.png" alt="Diagrama de circuito del motor" width=100%/>
   <br>
   <em>Diagrama de circuito del motor.</em>
 </p>
@@ -130,7 +130,7 @@ Este módulo es un generador de patrón de 4 bits sincronizado cuyo control de s
 El primer diagrama es el detalle interno del módulo, mientras que el segundo muestra su uso externo. La salida del módulo, generada a partir del contador y el comparador, se toma como señal limpia y se almacena en otro registro para que el resto del sistema la utilice. Todo el procesamiento interno queda oculto cuando el módulo se integra.
 
 <p align="center">
-  <img src="Imágenes/antirrebote.png" alt="Diagrama de circuito del antirrebote" width=100%/>
+  <img src="Images/antirrebote.png" alt="Diagrama de circuito del antirrebote" width=100%/>
   <br>
   <em>Diagrama de circuito del antirrebote.</em>
 </p>
@@ -138,7 +138,7 @@ El primer diagrama es el detalle interno del módulo, mientras que el segundo mu
 El primer diagrama muestra los componentes que forman el módulo del antirrebote. Primero aparece un registro (btn_sync) que sincroniza la entrada con el reloj del sistema. Desde ahí, la señal pasa a una pequeña lógica combinacional que controla un contador. El contador está formado por un sumador de 13 bits y un registro, donde el sumador calcula el siguiente valor y el registro lo almacena en cada ciclo de reloj. Un comparador digital verifica cuando el contador llega a un valor establecido, y cuando esto ocurre activa la señal interna que define la salida. Esta señal se guarda en un registro final (clean_reg), que entrega un resultado estable y alineado al reloj. Compuesto principalmente por un registro de entrada, un contador con comparador y un registro de salida.
 
 <p align="center">
-  <img src="Imágenes/infrarrojo.png" alt="Diagrama de circuito del sensor infrarrojo" width=100%/>
+  <img src="Images/infrarrojo.png" alt="Diagrama de circuito del sensor infrarrojo" width=100%/>
   <br>
   <em>Diagrama de circuito del sensor infrarrojo.</em>
 </p>
@@ -148,22 +148,22 @@ En el segundo diagrama, el módulo anterior aparece integrado como un bloque com
 
 ### Pantalla LCD 
 <p align="center">
-  <img src="Imágenes/LCD.png" alt="Diagrama de circuito del texto en la LCD" width=100%/>
+  <img src="Images/LCD.png" alt="Diagrama de circuito del texto en la LCD" width=100%/>
   <br>
   <em>Diagrama de circuito del texto en la LCD.</em>
 </p>
 <p align="center">
-  <img src="Imágenes/LCD2.png" alt="Diagrama de circuito del texto en la LCD" width=100%/>
+  <img src="Images/LCD2.png" alt="Diagrama de circuito del texto en la LCD" width=100%/>
   <br>
   <em>Diagrama de circuito del texto en la LCD.</em>
 </p>
 <p align="center">
-  <img src="Imágenes/LCD3.png" alt="Diagrama de circuito del texto en la LCD" width=100%/>
+  <img src="Images/LCD3.png" alt="Diagrama de circuito del texto en la LCD" width=100%/>
   <br>
   <em>Diagrama de circuito del texto en la LCD.</em>
 </p>
 <p align="center">
-  <img src="Imágenes/LCD4.png" alt="Diagrama de circuito del texto en la LCD" width=100%/>
+  <img src="Images/LCD4.png" alt="Diagrama de circuito del texto en la LCD" width=100%/>
   <br>
   <em>Diagrama de circuito del texto en la LCD.</em>
 </p>
@@ -172,17 +172,17 @@ Este circuito es un controlador completo para una pantalla LCD tipo 1602. Primer
 
 ### Módulo Bluetooth
 <p align="center">
-  <img src="Imágenes/bluetooth.png" alt="Diagrama de circuito del texto Bluetooth" width=100%/>
+  <img src="Images/bluetooth.png" alt="Diagrama de circuito del texto Bluetooth" width=100%/>
   <br>
   <em>Diagrama de circuito del texto Bluetooth.</em>
 </p>
 <p align="center">
-  <img src="Imágenes/bluetooth2.png" alt="Diagrama de circuito del texto Bluetooth" width=100%/>
+  <img src="Images/bluetooth2.png" alt="Diagrama de circuito del texto Bluetooth" width=100%/>
   <br>
   <em>Diagrama de circuito del texto Bluetooth.</em>
 </p>
 <p align="center">
-  <img src="Imágenes/bluetooth3.png" alt="Diagrama de circuito del texto Bluetooth" width=100%/>
+  <img src="Images/bluetooth3.png" alt="Diagrama de circuito del texto Bluetooth" width=100%/>
   <br>
   <em>Diagrama de circuito del texto Bluetooth.</em>
 </p>
@@ -190,22 +190,22 @@ Este circuito es un controlador completo para una pantalla LCD tipo 1602. Primer
 Este circuito es el encargado de enviar un mensaje por Bluetooth cuando recibe una señal de “trigger”. Lo que hace es recorrer un mensaje guardado en memoria y, usando varios selectores y contadores, va escogiendo byte por byte para enviarlo en orden. Una máquina de estados coordina todo el proceso, es decir, cuándo cargar el siguiente byte, cuándo pedirle al transmisor que envíe, y cuándo avanzar hasta terminar el mensaje. Cada byte pasa luego al módulo UART, que es el encargado de convertirlo en la señal serial. Finalmente, la salida “tx” del sistema se conecta al módulo Bluetooth HM-10.
 
 <p align="center">
-  <img src="Imágenes/uart.png" alt="Diagrama de circuito del protocolo UART" width=100%/>
+  <img src="Images/uart.png" alt="Diagrama de circuito del protocolo UART" width=100%/>
   <br>
   <em>Diagrama de circuito del protocolo UART.</em>
 </p>
 <p align="center">
-  <img src="Imágenes/uart2.png" alt="Diagrama de circuito del protocolo UART" width=100%/>
+  <img src="Images/uart2.png" alt="Diagrama de circuito del protocolo UART" width=100%/>
   <br>
   <em>Diagrama de circuito del protocolo UART.</em>
 </p>
 <p align="center">
-  <img src="Imágenes/uart3.png" alt="Diagrama de circuito del protocolo UART" width=100%/>
+  <img src="Images/uart3.png" alt="Diagrama de circuito del protocolo UART" width=100%/>
   <br>
   <em>Diagrama de circuito del protocolo UART.</em>
 </p>
 <p align="center">
-  <img src="Imágenes/uart4.png" alt="Diagrama de circuito del protocolo UART" width=100%/>
+  <img src="Images/uart4.png" alt="Diagrama de circuito del protocolo UART" width=100%/>
   <br>
   <em>Diagrama de circuito del protocolo UART.</em>
 </p>
@@ -213,7 +213,7 @@ Este circuito es el encargado de enviar un mensaje por Bluetooth cuando recibe u
 Este segundo diagrama corresponde al transmisor UART, que es quien convierte cada byte que recibe en una señal serial. Tiene varios contadores que generan la velocidad de transmisión (baud rate) y que llevan la cuenta de los bits que ya se han enviado. El byte entra a un registro que va “corriendo” sus bits hacia afuera uno por uno, comenzando por el bit de inicio y terminando en el bit de parada. El módulo también indica cuándo está ocupado enviando (busy) y produce la señal final “tx”, que es la que se transmite.
 
 <p align="center">
-  <img src="Imágenes/topbluetooth.png" alt="Diagrama de circuito del módulo Bluetooth" width=100%/>
+  <img src="Images/topbluetooth.png" alt="Diagrama de circuito del módulo Bluetooth" width=100%/>
   <br>
   <em>Diagrama de circuito del módulo Bluetooth.</em>
 </p>
@@ -222,22 +222,22 @@ El último diagrama muestra cómo se integra todo el sistema como un módulo lla
 
 ### Módulo top
 <p align="center">
-  <img src="Imágenes/top.png" alt="Diagrama de circuito del módulo top" width=100%/>
+  <img src="Images/top.png" alt="Diagrama de circuito del módulo top" width=100%/>
   <br>
   <em>Diagrama de circuito del módulo top.</em>
 </p>
 <p align="center">
-  <img src="Imágenes/top1.png" alt="Diagrama de circuito del módulo top" width=100%/>
+  <img src="Images/top1.png" alt="Diagrama de circuito del módulo top" width=100%/>
   <br>
   <em>Diagrama de circuito del módulo top.</em>
 </p>
 <p align="center">
-  <img src="Imágenes/top3.png" alt="Diagrama de circuito del módulo top" width=100%/>
+  <img src="Images/top3.png" alt="Diagrama de circuito del módulo top" width=100%/>
   <br>
   <em>Diagrama de circuito del módulo top.</em>
 </p>
 <p align="center">
-  <img src="Imágenes/top4.png" alt="Diagrama de circuito del módulo top" width=100%/>
+  <img src="Images/top4.png" alt="Diagrama de circuito del módulo top" width=100%/>
   <br>
   <em>Diagrama de circuito del módulo top.</em>
 </p>
@@ -251,7 +251,7 @@ El sistema funciona tomando primero las señales de entrada como el sensor, el r
 ## Motor
 
 <p align="center">
-  <img src="Imágenes/tb_motor.png" alt="Simulación en GTKwave del funcionamiento del motor" width=100%/>
+  <img src="Images/tb_motor.png" alt="Simulación en GTKwave del funcionamiento del motor" width=100%/>
   <br>
   <em>Simulación en GTKwave del funcionamiento del motor.</em>
 </p>
@@ -262,7 +262,7 @@ Se muestran los cilclos del reloj y el estado del motor ```motor_activo```.
 ## Sensor de Proximidad
 
 <p align="center">
-  <img src="Imágenes/tb_proximity.png" alt="Simulación en GTKwave del funcionamiento sensor de proximidad" width=100%/>
+  <img src="Images/tb_proximity.png" alt="Simulación en GTKwave del funcionamiento sensor de proximidad" width=100%/>
   <br>
   <em>Simulación en GTKwave del funcionamiento del sensor de proximidad.</em>
 </p>
@@ -272,7 +272,7 @@ Se simuló una señal ```sensor_i``` que dura 200ns, y se configuró que el anti
 ## Pantalla LCD
 
 <p align="center">
-  <img src="Imágenes/tb_lcd.png" alt="Simulación en GTKwave del funcionamiento de la LCD" width=100%/>
+  <img src="Images/tb_lcd.png" alt="Simulación en GTKwave del funcionamiento de la LCD" width=100%/>
   <br>
   <em>Simulación en GTKwave del funcionamiento de la LCD.</em>
 </p>
@@ -283,7 +283,7 @@ El diagrama confirma que el controlador ejecuta correctamente la fase crítica d
 ##  Módulo Bluetooth
 
 <p align="center">
-  <img src="Imágenes/tb_bluetooth.png" alt="Simulación en GTKwave del funcionamiento del módulo Bluetooth" width=100%/>
+  <img src="Images/tb_bluetooth.png" alt="Simulación en GTKwave del funcionamiento del módulo Bluetooth" width=100%/>
   <br>
   <em>Simulación en GTKwave del funcionamiento del módulo Bluetooth.</em>
 </p>
