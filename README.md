@@ -20,7 +20,7 @@ El objetivo principal del proyecto es diseñar un sistema capaz de controlar la 
 # Prototipo físico 
 Se llevó a cabo el diseño y la impresión del siguiente diseño.
 <p align="center">
-  <img src="Images/Dseño fisico.jpg" width="600">
+  <img src="Imágenes/Dseño fisico.jpg" width="600">
 </p>
 
 # Descripción de la Arquitectura
@@ -28,7 +28,7 @@ Para la realización del proyecto, se emplearon diversos recursos típicos de la
 
 ## Diagrama de bloques 
 <p align="center">
-  <img src="Images/Diagrama de bloques.png" width="700">
+  <img src="Imágenes/Diagrama de bloques.png" width="700">
 </p>
 
 
@@ -43,7 +43,7 @@ Se utilizaron maquinas de estado tanto para la LCD como para el modulo bluetooth
 
 Para la LCD, 
 <p align="center">
-  <img src="Images/Maquina LCD.jpg" width="600">
+  <img src="Imágenes/Maquina LCD.jpg" width="600">
 </p>
 
 La máquina de estados controla paso a paso lo que la pantalla LCD debe hacer. Primero, cuando el sistema enciende o se reinicia, todo comienza en el estado IDLE, que es simplemente una espera inicial. Cuando la LCD está lista, la máquina avanza y envía una serie de comandos de configuración necesarios para dejar la pantalla lista para usar.
@@ -55,7 +55,7 @@ En caso de ocurrir un reset, la máquina vuelve directamente al estado inicial (
 
 Para el modulo bluetooth se utilizó la siguiente maquina de estados.
 <p align="center">
-  <img src="Images/Maquina bluetooth.jpg" width="170">
+  <img src="Imágenes/Maquina bluetooth.jpg" width="170">
 </p>
 La función de esta es esperar la señal para cargar el mensaje, enviarlo y volver a esperar el mensaje.
 
@@ -70,7 +70,7 @@ Las señales de UART son el transmisor (Tx) y el receptor (Rx), para asi enviar 
 La transmisión de datos se realiza en forma de paquetes seriales, que constan de un bit de inicio, datos, un bit de paridad y bits de parada.
 
 <p align="center">
-  <img src="Images/UART.svg" width="500">
+  <img src="Imágenes/UART.svg" width="500">
 </p>
 
 En el caso del proyecto, este protocolo fue aplicado para la transmisión de datos por bluetooth. En el modulo de "uart_tx" se puede observar que se siguen todos los pasos de la imagen anterior, enviando los datos uno tras otro a una determinada velocidad. El modulo recibe un dato, lo convierte a  un paquete de datos UART y lo envia bit por bit a la linea de salida.
