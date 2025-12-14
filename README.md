@@ -240,7 +240,7 @@ El sistema funciona tomando primero las señales de entrada como el sensor, el r
 
 ## Simulaciones
 
-# Documentación
+# Bibliografía
 [1] Digital Electronics UNAL, “2025-2,” GitHub repository. https://github.com/digital-electronics-UNAL/2025-2 (accedido Dec. 14, 2025).
 
 [2] “Verilog Tutorial,” *ChipVerify*, https://www.chipverify.com/tutorials/verilog (accedido Dec. 14, 2025). :contentReference[oaicite:0]{index=0}
