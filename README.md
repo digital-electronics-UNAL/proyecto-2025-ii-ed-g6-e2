@@ -261,7 +261,7 @@ Se muestran los cilclos del reloj y el estado del motor ```motor_activo```.
   <em>Simulación en GTKwave del funcionamiento del sensor de proximidad.</em>
 </p>
 
-Se simuló una señal ```sensor_i``` que dura 200ns, y se configuró que el antirrebote detectara un objeto si éste se mantiene 5 ciclos del reloj (100 ns). A los 100 ns se observa que ```sensor_clean``` toma un valor lógico de 1. ```object_next``` es la salida del módulo.
+Se simuló una señal ```sensor_i``` que dura 200ns, y se configuró que el antirrebote detectara un objeto si éste se mantiene 5 ciclos del reloj (100 ns). A los 100 ns después del reset se observa que ```sensor_clean``` toma un valor lógico de 1. ```object_next``` es la salida del módulo.
 
 ## Pantalla LCD
 
