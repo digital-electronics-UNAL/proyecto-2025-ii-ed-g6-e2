@@ -250,7 +250,18 @@ El sistema funciona tomando primero las señales de entrada como el sensor, el r
   <em>Simulación en GTKwave del funcionamiento del motor.</em>
 </p>
 
+```M[3:0]``` son las señales que van a las cuatro bobinas del motor y los valores que se ven en la simulación representan las secuencia (valores de 0 o 1) que permiten que el motor gire.
+Se muestran los cilclos del reloj y el estado del motor ```motor_activo```.
+
 ## Sensor de Proximidad
+
+<p align="center">
+  <img src="Imágenes/tb_proximity.png" alt="Simulación en GTKwave del funcionamiento sensor de proximidad" width=100%/>
+  <br>
+  <em>Simulación en GTKwave del funcionamiento del sensor de proximidad.</em>
+</p>
+
+Se simuló una señal ```sensor_i``` que dura 200ns, y se configuró que el antirrebote detectara un objeto si éste se mantiene 5 ciclos del reloj (100 ns). A los 100 ns se observa que ```sensor_clean``` toma un valor lógico de 1. ```object_next``` es la salida del módulo.
 
 ## Pantalla LCD
 
