@@ -21,10 +21,10 @@ Se llevó a cabo el diseño y la impresión del siguiente diseño.
   <img src="Imágenes/Dseño fisico.jpg" width="600">
 </p>
 <p align="center">
-  <img src="Imágenes/mascota fisico.jpeg" width="600">
+  <img src="Imágenes/mascota.jpeg" width="600">
 </p>
 <p align="center">
-  <img src="Imágenes/prototipo2 fisico.jpeg" width="600">
+  <img src="Imágenes/prototipo2.jpeg" width="600">
 </p>
 
 # Descripción de la Arquitectura
