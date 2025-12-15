@@ -249,7 +249,7 @@ El sistema funciona tomando primero las señales de entrada como el sensor, el r
 ## Temporizador
 
 <p align="center">
-  <img src="Images/tb_timer.png" alt="Simulación en GTKwave del funcionamiento del temporizador width=100%/>
+  <img src="Images/tb_timer.png" alt="Simulación en GTKwave del funcionamiento del temporizador" width=100%/>
   <br>
   <em>Simulación en GTKwave del funcionamiento del temporizador.</em>
 </p>
