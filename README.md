@@ -254,7 +254,7 @@ El sistema funciona tomando primero las señales de entrada como el sensor, el r
   <em>Simulación en GTKwave del funcionamiento del temporizador.</em>
 </p>
 
-Para esta simulación se configuró el temporizador en 5 segundos y se hizo un reset. 
+Para esta simulación se configuró el temporizador en 5 segundos y se hizo un reset. Las porciones no cambian ya que esto depende de la insatanciación en el topModule.
 
 ## Motor
 
